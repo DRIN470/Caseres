@@ -1,0 +1,57 @@
+# Caseres
+Datastructureactivitu
+def to_binary(n):
+    """Return binary representation of n with 8 bits."""
+    return format(n, '08b')
+
+def main():
+    print("=== Bitwise Operations Demo ===")
+    print("1. AND (&)")
+    print("2. OR (|)")
+    print("3. XOR (^)")
+    print("4. NOT (~)")
+    print("5. Left Shift (<<)")
+    print("6. Right Shift (>>)")
+    
+    choice = int(input("Select an operation (1-6): "))
+    
+    if choice in [1, 2, 3]:
+        # Need two numbers
+        a = int(input("Enter first number: "))
+        b = int(input("Enter second number: "))
+        
+        if choice == 1:
+            result = a & b
+            op = "&"
+        elif choice == 2:
+            result = a | b
+            op = "|"
+        else:
+            result = a ^ b
+            op = "^"
+        
+        print(f"\n{a} ({to_binary(a)}) {op} {b} ({to_binary(b)}) = {result} ({to_binary(result)})")
+    
+    elif choice == 4:
+        # NOT (~) only needs one number
+        a = int(input("Enter a number: "))
+        result = ~a
+        print(f"\n~{a} ({to_binary(a)}) = {result} ({to_binary(result & 0xFF)})")
+    
+    elif choice == 5:
+        a = int(input("Enter a number: "))
+        shift = int(input("Enter number of bits to shift: "))
+        result = a << shift
+        print(f"\n{a} ({to_binary(a)}) << {shift} = {result} ({to_binary(result)})")
+    
+    elif choice == 6:
+        a = int(input("Enter a number: "))
+        shift = int(input("Enter number of bits to shift: "))
+        result = a >> shift
+        print(f"\n{a} ({to_binary(a)}) >> {shift} = {result} ({to_binary(result)})")
+    
+    else:
+        print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
